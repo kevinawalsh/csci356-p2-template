@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="welcome.css" media="all" />
+        <title>Test Page</title>
+    </head>
+<body>
+    <h1>Welcome to the test page....</h1>
+
+    <p>If you are seeing this, your server is at least partly working. It should
+    also have: no strange &lt;html&gt; tags should be visible; page should have
+    a light-blue background; the title above should be in teal color; there should be
+    an image at the right and below, with an animation; no obvious broken
+    images. If so, then your server is working well.</p>
+
+    <div style="float: right; border: 1px solid gray; padding: 10px; display: inline-block;">
+        <img src="xkcd_online_communities_2.png" width="304" height="344">
+        <br>
+        Source: <a href="https://xkcd.com/802/">XKCD Comic #802</a>
+    </div>
+
+    <p>Here are some other pages hosted on this server you might want to test
+    out. Some of these will only work after you have modified the server code I have
+    provided to implement the needed features.</p>
+
+    <ul>
+
+        <li>This "welcome.html" page: <a href="/welcome.html">click here</a></li>
+
+        <li>An image: <a href="/xkcd_online_communities_2.png">click here</a></li>
+
+        <li>A more complex "personal" page, with style sheets: <a href="compsci.html">click here</a></li>
+
+        <li>A custom hello world page: <a href="/hello">click here</a></li>
+
+        <li>A dynamic status page: <a href="/status">click here</a></li>
+
+        <li>A dynamic hello <i>name</i> page: <a href="/hello?username=Jon">click here</a><br>
+        Or use this form:
+<form method="GET" action="/hello"
+    style="background: gray; padding: 5px; margin: 5px; display: inline-block;">
+    Enter yourname: <input type="text" name="username" value="Alice">
+    <input type="submit" value="Greet Me!"></form></li>
+
+        <li>An "index.html" page you provide: <a href="/index.html">click here</a></li>
+
+        <li>Default path, which should be the same as "index.html": <a href="/">click here</a></li>
+
+        <li>A dynamic random-quote generator page: <a href="/quote">click here</a></li>
+
+        <li>An IRC-like chat-room WebApp: <a href="/chat.html">click here</a></li>
+    </ul>
+
+    <img src="https://www.holycross.edu/sites/default/files/images/marcomm/logos/versionformalcolorlogo.jpg">
+
+    <p>
+    <b>Hide Animation?</b><input id="animtoggle" type="checkbox">
+    <br>
+    <img id="anim" src="https://media.giphy.com/media/chV0ThxQtJEvS/giphy.gif">
+
+    <script>
+        var t = document.getElementById("animtoggle");
+        var a = document.getElementById("anim");
+        t.onchange = function() {
+            if (t.checked)
+                a.style.display = "none";
+            else
+                a.style.display = "inline";
+        }
+    </script>
+
+    </body>
+</html>

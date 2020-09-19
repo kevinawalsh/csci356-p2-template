@@ -1,0 +1,22 @@
+html
+{
+  min-height: 100%;
+  padding-bottom: 1px;
+}
+
+body 
+{
+  margin: 20px;
+  padding: 40px;
+  background: #ccccff;
+  font: normal 12px Verdana, Arial, Sans-Serif;
+  text-align: left;
+}
+
+h1
+{
+  color: #006688;
+  font-weight: bold;
+  font-size: 48px;
+}
+

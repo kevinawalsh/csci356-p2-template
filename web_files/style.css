@@ -1,0 +1,186 @@
+html
+{
+  min-height: 100%;
+  padding-bottom: 1px;
+}
+
+body 
+{
+  margin: 0;
+  padding: 0;
+  background: #a3a6a9;
+  font: normal 12px Verdana, Arial, Sans-Serif;
+  text-align: left;
+}
+
+a:link { color: #0000e0; text-decoration: none;}
+a:visited { color: #6600ff; text-decoration: none; }
+a:hover, a:active { color: #5555ff; text-decoration: none; }
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; margin: 10px 0; padding: 0; }
+
+h1
+{
+  color: #191a1a;
+  font-weight: bold;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+h2 { font-size: 28px; color: #ff0000;}
+h3 { font-size: 24px; color: #ff0000;}
+h4 { font-size: 20px; color: #ff0000; }
+h5 { font-size: 16px; color: #002649;}
+h6 { font-size: 14px; color: #ff0000;}
+
+ul { line-height: 1.5em; list-style-type: disc; color: #333333; }
+ol { line-height: 1.5em; color: #333333;}
+li { padding: 5px; }
+
+em { font-style: italic; }
+strong { font-weight: bold; }
+
+
+#screen
+{
+  margin: 0 auto;
+  width: 800px;
+}
+
+#page
+{
+  width: 800px;
+  margin: 0 0 10px 0;
+  padding: 0;
+  background: #ffffff;
+  border-left: solid #888d8d 1px;
+  border-right: solid #888d8d 1px;
+  border-bottom: solid #888d8d 1px;
+}
+
+#contents
+{
+  width: 750px;
+  padding: 50px 25px 25px 25px;
+  line-height: 1.5em;
+  background: #ffffff;
+}
+
+#photo 
+{
+  margin: 10px;
+  padding: 20px;
+  float: right;
+  background: #f5f5f5;
+  border: solid #e0e0e0 1px;
+}
+
+#photo img {
+  border-style: none;
+}
+
+#tabs
+{
+  margin: 0;
+  padding: 0;
+}
+
+#tabs ul
+{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+#tabs ul ul
+{
+  margin: 0 20px;
+  padding: 0;
+  list-style-type: none;
+}
+
+#navigation
+{
+  width: 100%;
+  float: left; 
+  background: #888d8d;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+#navigation ul
+{
+  margin: 0 1px;
+  padding: 0;
+  float: left;
+  list-style-type: none;
+}
+  /* width: 800px; */
+
+#navigation li
+{
+  margin: 0 0 0 5px;
+  padding: 0;
+  float: left;
+}
+
+#navigation a:link,
+#navigation a:visited
+{
+  float: left;
+  display: block;
+  color: #161616;
+  padding: 4px 8px;
+  border-left: solid transparent 1px;
+  border-right: solid transparent 1px;
+}
+
+#navigation ul li a:hover,
+#navigation ul li a:active
+{
+  background: #a4aaaa;
+  border-left: solid transparent 1px;
+  border-right: solid transparent 1px;
+}
+
+#navigation ul li.current a:link,
+#navigation ul li.current a:visited,
+#navigation ul li.current a:hover,
+#navigation ul li.current a:active
+{
+  color: #000000;
+  background: #b8bdbd;
+  border-left: solid #4b5250 1px;
+  border-right: solid #4b5050 1px;
+}
+
+.tumblrlinkdiv {
+  text-align: right;
+  float: right;
+  background: white;
+  padding: 7px;
+  border: solid #888d8d 1px;
+  border-radius: 7px;
+}
+
+.tumblrlinkdiv a {
+  margin: 0px;
+}
+
+#tumblr {
+  margin: 0px 0px 50px 0px;
+  padding: 0px;
+}
+
+.tumblr_posts {
+  width: 800px;
+  list-style-type: none;
+  padding: 0px;
+}
+
+.tumblr_post {
+  background: white;
+  border: solid #888d8d 1px;
+  margin: 1em 0px;
+  border-radius: 7px;
+}

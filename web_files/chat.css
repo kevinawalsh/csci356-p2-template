@@ -1,0 +1,33 @@
+.room_button, .button {
+    display:inline-block;
+    color:#444;
+    border:1px solid #CCC;
+    background:#DDD;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+    cursor:pointer;
+    vertical-align:middle;
+    max-width: 120px;
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+}
+.button {
+    background: #FFF;
+    min-height: 50px;
+}
+.selected_room {
+    background: #44D;
+    color: white;
+}
+.room_button:hover {
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+}
+.room_button:active {
+    color: #44D;
+    border:1px solid #44D;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+}
+textarea {
+    min-width: 300px;
+    min-height: 60px;
+}

@@ -1,0 +1,24 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="chat.css" media="all" />
+<script src="chat.js"></script>
+</head>
+<body>
+<p>
+Welcome to chat
+<p>
+<form action="" onsubmit="return false;">
+    Select a room, or create a new one!
+    <div id="roomlist" class="list_of_boxes">
+        <input type="button" class="button" value="Create Room" onClick="create_room()">
+        <div id="placeholder">No rooms have been created yet...</div>
+    </div>
+    <p>
+    <textarea id="chatroom" rows="20" cols="80" readonly>[You haven't yet entered a room]</textarea>
+    <br>
+    <input id="chatmsg" type="text" size=50 value="Hello World!">
+    <input id="sendmsg" type="button" value="Send" onClick="send_chat()">
+</form>
+
+</body>
+</html>
