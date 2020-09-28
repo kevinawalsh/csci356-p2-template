@@ -216,7 +216,8 @@ def handle_one_http_request(conn):
     lines = data.splitlines()
     if len(lines) == 0:
         log("Request is missing the required HTTP request-line")
-        send_http_response(conn, "400 BAD REQUEST", "text/plain", "You need a request-line!")
+        resp = Response("400 BAD REQUEST", "text/plain", "You need a request-line!")
+        send_http_response(conn, resp)
         return
     request_line = lines[0]
     req.headers = lines[1:]
@@ -225,8 +226,9 @@ def handle_one_http_request(conn):
     words = request_line.split()
     if len(words) != 3:
         log("The request-line is malformed: '%s'" % (request_line))
-        send_http_response(conn, "400 BAD REQUEST", "text/plain", "Your request-line is malformed!")
-        return (False, unused_data)
+        resp = Response("400 BAD REQUEST", "text/plain", "Your request-line is malformed!")
+        send_http_response(conn, resp)
+        return
     req.method = words[0]
     req.path = words[1]
     req.version = words[2]
@@ -245,7 +247,8 @@ def handle_one_http_request(conn):
     # Browsers that use chunked transfer encoding are tricky, don't bother.
     if get_header_value(req.headers, "Transfer-Encoding") == "chunked":
         log("The request uses chunked transfer encoding, which isn't yet supported")
-        send_http_response(conn, "411 LENGTH REQUIRED", "text/plain", "Your request uses checunked transfer encoding, sorry!")
+        resp = Response("411 LENGTH REQUIRED", "text/plain", "Your request uses chunked transfer encoding, sorry!")
+        send_http_response(conn, resp)
         return
 
     # If request has a Content-Length header, get the body of the request.
