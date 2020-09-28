@@ -330,12 +330,15 @@ def handle_http_get_hello():
     msg += "though the contents will never change, sadly.\n"
     msg += "\n"
     msg += 'You can also go to these exciting pages:\n'
-    msg += '*  http://radius.holycross.edu:8888/status                - status and statistics\n'
-    msg += '*  http://radius.holycross.edu:8888/hello                 - a standard greeting\n'
-    msg += '*  http://radius.holycross.edu:8888/hello?username=Alice  - a custom greeting\n'
-    msg += '*  http://radius.holycross.edu:8888/quote                 - a randomly generated quote\n'
-    msg += '*  http://radius.holycross.edu:8888/index.html            - something?\n'
-    msg += '*  http://radius.holycross.edu:8888/chat.html             - a chat service\n'
+    # Note: we use a full URL here, so user can copy-paste into the browser bar.
+    # But if we were using HTML links, we could use a relative URL like
+    # "/status" to avoid having to include the hostname and port number.
+    msg += '*  http://localhost:8888/status                - status and statistics\n'
+    msg += '*  http://localhost:8888/hello                 - a standard greeting\n'
+    msg += '*  http://localhost:8888/hello?username=Alice  - a custom greeting\n'
+    msg += '*  http://localhost:8888/quote                 - a randomly generated quote\n'
+    msg += '*  http://localhost:8888/index.html            - something?\n'
+    msg += '*  http://localhost:8888/chat.html             - a chat service\n'
     return Response("200 OK", "text/plain", msg)
 
 
