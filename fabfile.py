@@ -38,9 +38,10 @@ env.key_filename = '~/.ssh/cloud_sshkey'
 
 # This is the list of cloud hosts. Add or remove from this list as you like.
 env.hosts = [
-        '34.94.207.48', # gcp
-        '35.199.57.169', # gcp
-        '54.242.85.178', #aws
+        '34.94.207.48', # gcp - bogoserver
+        '35.228.5.242', # gcp - floppybird
+        '54.235.59.70', # aws - randoserver
+        '3.96.172.100', # aws - uncreatively
         ]
 # This is the host designated as the central coordator. Pick whichever server
 # from all_hosts you like here. By default, just take the first one.
