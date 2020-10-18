@@ -2,8 +2,8 @@
 
 import os, sys, socket, socketutil
 
-server_host = "127.0.0.1"
-server_port = 5005
+server_host = None
+server_port = 8005
 
 if len(sys.argv) < 3:
     print("usage:")
@@ -16,11 +16,12 @@ if len(sys.argv) > 3:
     server_port = int(sys.argv[3])
 server_addr = (server_host, server_port)
 
-print("Sending %d messages to server at %s:%d" % (count, server_host, server_port))
 
+print("Connecting to server at %s:%d" % (server_host, server_port))
 c = socketutil.socket(socket.AF_INET, socket.SOCK_STREAM)
 c.connect(server_addr)
 
+print("Sending %d messages to server" % (count))
 i = count
 while i > 0:
     c.sendall(str(i) + "\n")

@@ -2,13 +2,13 @@
 
 import os, sys, socket, socketutil
 
-server_host = "127.0.0.1"
+server_host = ""
 server_port = 8888
 
 if len(sys.argv) < 2:
     print("usage:")
-    print("   %s client [server_host [server_port]]" % (sys.argv[0]))
-    print("   %s server [server_host [server_port]]" % (sys.argv[0]))
+    print("   %s client server_host [server_port]" % (sys.argv[0]))
+    print("   %s server [server_port]" % (sys.argv[0]))
     exit()
 
 is_client = (sys.argv[1] == "client")
@@ -17,10 +17,17 @@ if not (is_client or is_server):
     print("sorry, first argument should be 'client' or 'server'")
     exit()
 
-if len(sys.argv) > 2:
+if is_client:
+    if len(sys.argv) <= 2:
+        print("sorry, for client mode, you need to specify the the server host to connect to")
+        exit()
     server_host = sys.argv[2]
-if len(sys.argv) > 3:
-    server_port = int(sys.argv[3])
+    if len(sys.argv) > 3:
+        server_port = int(sys.argv[3])
+else:
+    if len(sys.argv) > 2:
+        server_port = int(sys.argv[2])
+
 server_addr = (server_host, server_port)
 
 if is_client:

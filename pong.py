@@ -2,18 +2,16 @@
 
 import os, sys, socket, socketutil
 
-server_host = "127.0.0.1"
-server_port = 5005
+server_host = "" # blank means listen on any available network interface
+server_port = 8005
 
-if len(sys.argv) > 3:
+if len(sys.argv) > 2:
     print("usage:")
-    print("   %s [server_host [server_port]]" % (sys.argv[0]))
+    print("   %s [server_port]" % (sys.argv[0]))
     exit()
 
 if len(sys.argv) > 1:
-    server_host = sys.argv[1]
-if len(sys.argv) > 2:
-    server_port = int(sys.argv[2])
+    server_port = int(sys.argv[1])
 server_addr = (server_host, server_port)
 
 print("Listening on address %s:%d" % (server_host, server_port))

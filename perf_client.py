@@ -3,7 +3,7 @@
 import os, sys, socket, socketutil
 import random
 
-server_host = "127.0.0.1"
+server_host = None
 server_port = 9000
 
 if len(sys.argv) < 4:
