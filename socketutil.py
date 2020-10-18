@@ -42,7 +42,10 @@ class socket(_socket.socket):
 
     """Create a new socket object."""
     def __init__(self, family=AF_INET, type=SOCK_STREAM, proto=-1, fileno=None):
-        _socket.socket.__init__(self, family, type, proto, fileno)
+        if fileno is None:
+            _socket.socket.__init__(self, family, type)
+        else:
+            _socket.socket.__init__(self, family, type, proto, fileno)
         self.rq = b""
 
     """Accept a new connection on the underlying socket."""
