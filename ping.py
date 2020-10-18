@@ -13,7 +13,7 @@ if len(sys.argv) < 3:
 count = int(sys.argv[1])
 server_host = sys.argv[2]
 if len(sys.argv) > 3:
-    server_port = sys.argv[3]
+    server_port = int(sys.argv[3])
 server_addr = (server_host, server_port)
 
 print("Sending %d messages to server at %s:%d" % (count, server_host, server_port))

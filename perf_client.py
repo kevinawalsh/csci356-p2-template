@@ -15,7 +15,7 @@ count = int(sys.argv[1])
 size = int(sys.argv[2])
 server_host = sys.argv[3]
 if len(sys.argv) > 4:
-    server_port = sys.argv[4]
+    server_port = int(sys.argv[4])
 server_addr = (server_host, server_port)
 
 print("Sending %d messages of %d bytes each to server at %s:%d" % (count, size, server_host, server_port))
