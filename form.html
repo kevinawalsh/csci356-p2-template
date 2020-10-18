@@ -1,0 +1,36 @@
+<html>
+<head><title>Geolocation service by kwalsh</title></head>
+<body>
+  <h1>Welcome to kwalsh's geolocation service</h1>
+
+  <p><font color="red">NOTE TO STUDENTS: Everything in blue is supposed to be dynamic... it should change automatically if your code is
+      deployed to a different cloud server, if new worker servers are started, etc.</font>
+
+  <p>You are connected to the front-end server at
+      <font color="blue">54.164.108.142 / Amazon AWS, located in Charlottesville (us-east-1a)</font>.
+
+  <p>There are currently 9 active analysis and geolocation worker servers:</p>
+
+  <font color="blue">
+  <pre>
+    54.164.108.149 / Amazon AWS, located in Charlottesville (us-east-1a)
+    54.67.71.105 / Amazon AWS, located in Palo Alto (us-west-1a)
+    54.67.70.218 / Amazon AWS, located in Palo Alto (us-west-1c)
+    54.77.232.9 / Amazon AWS, located in Ireland (eu-west-1a)
+    54.93.89.20 / Amazon AWS, located in Frankfurt (eu-central-1b)
+    54.169.162.132 / Amazon AWS, located in Singapore (ap-southeast-1a)
+    35.182.206.219 / Google GCP, located in Changhua County, Taiwan (asia-east1-b)
+    35.187.110.135 / Google GCP, located in Berkeley County, South Carolina (us-east1)
+    35.195.85.91 / Google GCP, located in St. Ghislain, Belgium (europe-west1)
+  </pre>
+  </font>
+
+  <p>
+    <form action="/analyze" method="GET">
+      Enter a url (HTTPS is not supported yet, only HTTP so far, sorry):<br>
+      <input type="text" name="target" size="80" value="http://www.voanews.com/press-freedom">
+      <input type="submit">
+    </form>
+  </p>
+</body>
+</html>
