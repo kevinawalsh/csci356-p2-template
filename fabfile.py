@@ -3,6 +3,7 @@
 #
 # Author: kwalsh@cs.holycross.edu
 # Date: January 25, 2015.
+# Updated: October 18, 2020.
 #
 # To use this file, you need to have the `fab` command installed from the
 # fabric3 package (see: https://pypi.org/project/Fabric3/). You can either:
@@ -23,7 +24,7 @@
 #    fab -P deploy start
 #
 # You can edit this file however you like, but update the instructions above if
-# you do so that it is clear how to deploy and start your geolocate service.
+# you do so that it is clear how to deploy and start your geoanalyze service.
 
 from fabric.api import hosts, run, env
 from fabric.operations import put
@@ -40,7 +41,6 @@ env.hosts = [
         '34.94.207.48', # gcp
         '35.199.57.169', # gcp
         '54.242.85.178', #aws
-        '52.87.83.20', #aws
         ]
 # This is the host designated as the central coordator. Pick whichever server
 # from all_hosts you like here. By default, just take the first one.
@@ -50,9 +50,10 @@ central_host = env.hosts[0]
 # If you want to copy other files, you can modify this, or make a separate task
 # for deploying the other files to specific hosts.
 def deploy():
-    put('*.py', '~/')
+    run('mkdir -p ~/fabdeploy/')
+    put('*.py', '~/fabdeploy/')
 
-# The start task runs the geolocate.py command on every host.
+# The start task runs the geoanalyze.py command on every host.
 def start():
-    run('python3 geolocate.py ' + central_host + ' 8088')
+    run('python3 ~/fabdeploy/geoanalyze.py ' + central_host + ' 8088')
 
