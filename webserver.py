@@ -3,6 +3,7 @@
 # Author: K. Walsh <kwalsh@cs.holycross.edu>
 # Date: 15 January 2015
 # Updated: 17 September 2020 - update to python3, add classes
+# Updated: 15 September 2022 - bug fixes
 #
 # A simple web server from scratch in Python. Run it like this:
 #   ./webserver.py
@@ -25,15 +26,15 @@
 # interpolation. We also avoid use of any modules except for the following very
 # basic things:
 
-import os            # for os.path.isfile()
-import socket        # for socket stuff
-import sys           # for sys.argv
-import urllib.parse  # for urllib.parse.unquote()
-import time          # for time.time()
-import threading     # for threading.Thread()
-import re            # for regex split()
-import random        # for random numbers
-import string        # for various string operations
+import os             # for os.path.isfile()
+import socket         # for socket stuff
+import sys            # for sys.argv
+import urllib.parse   # for urllib.parse.unquote()
+import time           # for time.time()
+import threading      # for threading.Thread()
+import random         # for random numbers
+import re             # for regex split()
+import string         # for various string operations
 
 
 # Global configuration variables, with default values.
@@ -48,9 +49,9 @@ server_port = 8888
 server_root = "./web_files"
 
 # Get command-line parameters, if present
-if len(sys.argv) >= 2:
+if len(sys.argv) > 1:
     server_port = int(sys.argv[1])
-if len(sys.argv) >= 3:
+if len(sys.argv) > 2:
     server_root = sys.argv[2]
 server_root = os.path.normpath(server_root + '/')
 
@@ -69,8 +70,8 @@ class Statistics:
         self.num_requests = 0
         self.num_errors = 0
         self.tot_time = 0 # total time spent handling requests
-        self.avg_time = 0 # average time spent handling requests
         self.max_time = 0 # max time spent handling a request
+        self.avg_time = 0 # average time spent handling requests
         self.lock = threading.Condition()
 stats = Statistics()
 
@@ -197,6 +198,7 @@ def make_printable(s):
     s = s.replace("\r", "\\r")
     return ''.join(c if c in printable else r'\x{0:02x}'.format(ord(c)) for c in s)
 
+
 # handle_one_http_request() reads one HTTP request from the client, parses it,
 # decides what to do with it, then sends an appropriate response back to the
 # client. 
@@ -261,7 +263,7 @@ def handle_one_http_request(conn):
     if req.method == "GET":
         resp = handle_http_get(req)
     else:
-        log("Method '%s' is not recognized or not yet implemented" % (req.method))
+        log("HTTP method '%s' is not recognized or not yet implemented" % (req.method))
         resp = Response("405 METHOD NOT ALLOWED",
                 "text/plain",
                 "Unrecognized method: " + req.method)
@@ -280,7 +282,7 @@ def send_http_response(conn, resp):
             stats.num_errors += 1
     # Make a response-line and all the necessary headers.
     data = "HTTP/1.1 " + resp.code + "\r\n"
-    data += "Server: csci356\r\n"
+    data += "Server: csci356fa22\r\n"
     data += "Date: " + time.strftime("%a, %d %b %Y %H:%M:%S %Z") + "\r\n"
 
     body = None
@@ -309,7 +311,7 @@ def send_http_response(conn, resp):
 # handle_http_get_status() returns a response for GET /status
 def handle_http_get_status():
     log("Handling http get status request")
-    msg = "Web server for csci 356, version 0.01\n"
+    msg = "Web server for csci 356, version 0.02\n"
     msg += "\n"
     with stats.lock:
         msg += str(stats.total_connections) + " connections in total\n"
@@ -449,7 +451,7 @@ log("Listening on address %s:%d" % (server_host, server_port))
 log("Serving files from %s" % (server_root))
 log("Ready for connections...")
 
-# Create the server socket, and set it up to listen for connections
+# Create the server welcoming socket, and set it up to listen for connections
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 s.bind(server_addr)

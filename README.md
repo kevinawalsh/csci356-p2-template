@@ -1,7 +1,7 @@
-CSCI 356 Project 1 Starter Code
+CSCI 356 Project 2 Starter Code
 -------------------------------
 
-This repository contains starter code for project 1, in which you will write a
+This repository contains starter code for project 2, in which you will write a
 pure-python dynamic web server and web application server. The main files are:
 
 * `webserver.py` - Working code for a static, file-based, concurrent web server.
